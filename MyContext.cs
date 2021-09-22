@@ -11,7 +11,8 @@ namespace AzureFunctionsAPISQL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=serverse.database.windows.net,1433;Database=db;User ID=***;Password=***");
+           // optionsBuilder.UseSqlServer(@"Server=serverse.database.windows.net,1433;Database=db;User ID=***;Password=***");
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("SQLAZURECONNSTR_DB"));
         }
     }
 }
